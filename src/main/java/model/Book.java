@@ -5,13 +5,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 public class Book {
-@JsonProperty("ISBN")
+    @JsonProperty("ISBN")
     String ISBN;
-@JsonProperty("Nazev")
+    @JsonProperty("Nazev")
     String nazev;
-@JsonProperty("Vydano")
+    @JsonProperty("Vydano")
     int vydano;
-@JsonProperty("Autor")
+    @JsonProperty("Autor")
     Autor autor;
 
 

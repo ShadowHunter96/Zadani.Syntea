@@ -7,7 +7,10 @@ public class Autor {
     String jmeno;
     @JsonProperty("Prijmeni")
     String prijmeni;
-public Autor(){}
+
+    public Autor() {
+    }
+
     public Autor(String jmeno, String prijmeni) {
         this.jmeno = jmeno;
         this.prijmeni = prijmeni;
@@ -29,7 +32,7 @@ public Autor(){}
         this.prijmeni = prijmeni;
     }
 
-    public String toString(){
-    return getJmeno() +" " + getPrijmeni();
+    public String toString() {
+        return getJmeno() + " " + getPrijmeni();
     }
 }
