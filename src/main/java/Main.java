@@ -3,10 +3,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import model.Book;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,27 +27,29 @@ public class Main {
             PrintWriter out2 = new PrintWriter(csvFile2);
             ObjectMapper mapper = new XmlMapper();
             InputStream inputStream = new FileInputStream(new File(pathName));
-            TypeReference<List<Book>> typeReference = new TypeReference<List<Book>>() {};
+            TypeReference<List<Book>> typeReference = new TypeReference<List<Book>>() {
+            };
             List<Book> books = mapper.readValue(inputStream, typeReference);
             out1.println("ISBN, Nazev, Autor, Vydano");
             out2.println("ISBN, Nazev, Autor, Vydano");
-            for(Book p :books) {
-                if (p.getVydano()<=yearBreakthrough){
+            for (Book p : books) {
+                if (p.getVydano() <= yearBreakthrough) {
 
                     out1.printf("%s, %s, %s, %d\n", p.getIsbn(), p.getNazev(), p.getAutor(), p.getVydano());
-                }else {
+                } else {
                     out2.printf("%s, %s, %s, %d\n", p.getIsbn(), p.getNazev(), p.getAutor(), p.getVydano());
                 }
             }
             out1.close();
             out2.close();
             System.out.println("Třídění proběhlo úspěšně!");
-        }
-        catch(Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
+            System.exit(-1);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            System.exit(-2);
         }
-
-
 
 
     }
