@@ -24,8 +24,8 @@ public class Main {
 
 
         try {
-            File csvFile1 = new File("knihyStare.csv");
-            File csvFile2 = new File("knihyNove.csv");
+            File csvFile1 = new File("knihy_Stare.csv");
+            File csvFile2 = new File("knihy_Nove.csv");
             PrintWriter out1 = new PrintWriter(csvFile1);
             PrintWriter out2 = new PrintWriter(csvFile2);
             ObjectMapper mapper = new XmlMapper();
