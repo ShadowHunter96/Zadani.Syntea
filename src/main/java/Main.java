@@ -30,14 +30,14 @@ public class Main {
             TypeReference<List<Book>> typeReference = new TypeReference<List<Book>>() {
             };
             List<Book> books = mapper.readValue(inputStream, typeReference);
-            out1.println("ISBN, Nazev, Autor, Vydano");
-            out2.println("ISBN, Nazev, Autor, Vydano");
+            out1.println("ISBN;Nazev;Autor;Vydano");
+            out2.println("ISBN;Nazev;Autor;Vydano");
             for (Book p : books) {
                 if (p.getVydano() <= yearBreakthrough) {
 
-                    out1.printf("%s, %s, %s, %d\n", p.getIsbn(), p.getNazev(), p.getAutor(), p.getVydano());
+                    out1.printf("%s;%s;%s;%d\n", p.getIsbn(), p.getNazev(), p.getAutor(), p.getVydano());
                 } else {
-                    out2.printf("%s, %s, %s, %d\n", p.getIsbn(), p.getNazev(), p.getAutor(), p.getVydano());
+                    out2.printf("%s;%s;%s;%d\n", p.getIsbn(), p.getNazev(), p.getAutor(), p.getVydano());
                 }
             }
             out1.close();
